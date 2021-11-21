@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "465196706242",
+    "project_id": "jokes-app-b063b",
+    "storage_bucket": "jokes-app-b063b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465196706242:android:6176cb5638b97ef7ba0e5b",
+        "android_client_info": {
+          "package_name": "com.ithogskolan.jokesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465196706242-jsfbipi2mgsh54897bf5hnieagvhiijo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMDytS99Hk0l7WgbEjTVe_FLC9KK_5-_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465196706242-jsfbipi2mgsh54897bf5hnieagvhiijo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "465196706242-5jhkjsj98tghb7ntio75i5caj6mel86v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ithogskolan.jokesapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

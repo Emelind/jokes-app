@@ -17,16 +17,30 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ithogskolan.jokesapp",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "config": {
+        "firebase": {
+          "apiKey": "AIzaSyCUqYBuhGwqrCRy2BAb2bvwEaqjKxBdjTw",
+          "authDomain": "mybestapp-5c7aa.firebaseapp.com",
+          "projectId": "mybestapp-5c7aa",
+          "storageBucket": "mybestapp-5c7aa.appspot.com",
+          "messagingSenderId": "53768294809",
+          "appId": "1:53768294809:web:e9fcaa76bc435b44490308",
+          "measurementId": "G-6EQM4E329Z"
+        }
+      }
     }
   }
 }
