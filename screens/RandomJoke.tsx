@@ -2,7 +2,6 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { Button } from 'react-native';
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { StackScreens } from '../helpers/types';
 import { AuthContext } from '../src/contexts/AuthContext';
@@ -39,6 +38,10 @@ const RandomJoke: React.FC<NativeStackScreenProps<StackScreens, "RandomJoke">> =
 
             <Pressable style={styles.button} onPress={() => {authContext?.logout();}}>
                 <Text style={styles.buttonLabel}>Logout</Text>
+            </Pressable>
+
+            <Pressable style={styles.button} onPress={() => {props.navigation.navigate("ProductList")}}>
+                <Text style={styles.buttonLabel}>To the product list</Text>
             </Pressable>
         </View>
     );
