@@ -51,12 +51,14 @@ const NewProduct: React.FC<NativeStackScreenProps<StackScreens, "NewProduct">> =
     }, [productPrice, productType])
 
     useEffect(() => {
+        const isNum = /^\d+$/.test(productPrice);
         setButtonDisabled(
             productName === "" ||
             productPrice === "" ||
             productPrice === "0" ||
             !isNameValid ||
-            !isPriceValid
+            !isPriceValid ||
+            !isNum
         );
     }, [productName, productPrice, isNameValid, isPriceValid]);
 
