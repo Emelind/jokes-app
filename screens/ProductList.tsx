@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackScreens } from '../helpers/types';
-import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
+import { View, Text, StyleSheet, FlatList, Pressable, Button } from "react-native";
 import * as React from 'react';
 import { getAuth } from "firebase/auth";
 import { useEffect } from "react";
@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { ProductContext } from "../src/contexts/ProductContext";
 import { translate } from "../src/translation/translation";
 import { tokens } from "../src/translation/appStructure";
+import SwipeableFlatList from "react-native-swipeable-list";
 
 const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">> = (props) => {
 
@@ -30,22 +31,31 @@ const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">>
 
     return (
         <View style={styles.container}>
-            <FlatList
-                style={{width: "100%"}}
+            <SwipeableFlatList
+                shouldBounceOnMount
+                style={{ width: "100%" }}
                 data={context.products}
-                renderItem={({item, index}) => (
-                    <Pressable 
+                renderItem={({ item }) => (
+                    <Pressable
                         style={styles.listItemContainer}
-                        onPress={() => {context.setProduct(item); props.navigation.navigate("EditProduct")}}
+                        onPress={() => { context.setProduct(item); props.navigation.navigate("EditProduct") }}
                     >
                         <Text style={styles.leftItem}>{item.productName}</Text>
                         <Text style={styles.centerItem}>{item.productType}</Text>
                         <Text style={styles.rightItem}>{item.productPrice}</Text>
                     </Pressable>
                 )}
+                renderQuickActions={({ item }) => (
+                    <View style={styles.swipeBackground}>
+                        <Pressable onPress={() => {context.removeProduct(item)}}>
+                            <Text style={styles.swipeText}>Remove</Text>
+                        </Pressable>
+                    </View>
+                )}
                 keyExtractor={item => item.productId}
                 ListEmptyComponent={emptyComponent}
                 ListHeaderComponent={headerComponent}
+                maxSwipeDistance={240}
             />
             <FAB
                 style={styles.fabSmile}
@@ -121,36 +131,46 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         justifyContent: "space-between",
-      },
-      leftItem: {
+    },
+    leftItem: {
         width: "33%",
         textAlign: "left",
-      },
-      centerItem: {
+    },
+    centerItem: {
         width: "33%",
         textAlign: "center",
-      },
-      rightItem: {
+    },
+    rightItem: {
         width: "33%",
         textAlign: "right",
-      },
+    },
+    swipeBackground: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    swipeText: {
+        color: 'red',
+        padding: 10
+    }
 })
 
 
     //const auth = getAuth();
     // const [products, setProducts] = useState([]);
-    /*useEffect(() => {
-        if (auth.currentUser) {
-            const db = getFirestore();
-            const unsub = onSnapshot(doc(db, "users", auth.currentUser.uid), (doc) => {
-                const data = doc.data()
-                console.log("data", data)
-                if (data) {
-                    const prod = data.products
-                    console.log("prod: ", prod)
-                }
-            });
-        } else {
-            console.log("no user");
-        }
-    }, [])*/
+/*useEffect(() => {
+    if (auth.currentUser) {
+        const db = getFirestore();
+        const unsub = onSnapshot(doc(db, "users", auth.currentUser.uid), (doc) => {
+            const data = doc.data()
+            console.log("data", data)
+            if (data) {
+                const prod = data.products
+                console.log("prod: ", prod)
+            }
+        });
+    } else {
+        console.log("no user");
+    }
+}, [])*/

@@ -14,11 +14,9 @@ import { ProductContext } from "../src/contexts/ProductContext";
 import { translate } from "../src/translation/translation";
 import { tokens } from "../src/translation/appStructure";
 
-
 const EditProduct: React.FC<NativeStackScreenProps<StackScreens, "EditProduct">> = (props) => {
 
     const context = useContext(ProductContext);
-
     const [productName, setProductName] = useState(context.product?.productName);
     const [productPrice, setProductPrice] = useState(context.product?.productPrice ?? "");
     const [productType, setProductType] = useState(context.product?.productType);
@@ -80,8 +78,12 @@ const EditProduct: React.FC<NativeStackScreenProps<StackScreens, "EditProduct">>
     }
 
     const removeProduct = () => {
-        context.removeProduct();
-        props.navigation.navigate("ProductList");
+        if(context.product) {
+            context.removeProduct(context.product);
+            props.navigation.navigate("ProductList");
+        } else {
+            console.log("Something went wrong")
+        }
     }
 
     return (

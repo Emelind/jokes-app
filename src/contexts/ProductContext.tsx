@@ -5,7 +5,7 @@ interface IProductContext {
 	product?: IProduct;
 	setProduct: (product: IProduct) => void;
 	products?: IProduct[];
-	removeProduct: () => void;
+	removeProduct: (item: IProduct) => void;
 	addProduct: (item: IProduct) => void;
 	editProduct: (item: IProduct) => void;
 }
@@ -26,7 +26,7 @@ export const ProductContext = React.createContext<IProductContext>({
 	editProduct: () => { }
 });
 
-const initialState: IProduct[] = [/*{
+const initialState: IProduct[] = [{
 	productId: "1",
 	productName: "Product 1",
 	productType: "peripheral",
@@ -43,15 +43,15 @@ const initialState: IProduct[] = [/*{
 	productName: "Product 3",
 	productType: "peripheral",
 	productPrice: "5500"
-}*/]
+}]
 
 export const ProductContextProvider: React.FC = (props) => {
 
 	const [products, setProducts] = useState<IProduct[]>(initialState);
 	const [product, setProduct] = useState<IProduct>()
 
-	const removeProduct = () => {
-		setProducts((products) => products.filter((productToRemove) => productToRemove.productId !== product?.productId));
+	const removeProduct = (item: IProduct) => {
+		setProducts((products) => products.filter((productToRemove) => productToRemove.productId !== item.productId));
 	}
 
 	const addProduct = (item: IProduct) => {
