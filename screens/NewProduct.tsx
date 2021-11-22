@@ -50,7 +50,6 @@ const NewProduct: React.FC<NativeStackScreenProps<StackScreens, "NewProduct">> =
         } else {
             setIsPriceValid(true);
         }
-
     }, [productPrice, productType])
 
     useEffect(() => {
@@ -164,27 +163,29 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: '80%',
-        marginHorizontal: 40
+        marginHorizontal: 40,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     saveButton: {
         backgroundColor: 'green',
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
         justifyContent: 'space-between',
-        alignItems: 'stretch'
+        flexDirection: 'row',
+        width: '40%'
     },
     saveButtonDisabled: {
         backgroundColor: 'lightgray',
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
         justifyContent: 'space-between',
-        alignItems: 'stretch'
+        flexDirection: 'row',
+        width: '40%'
     },
     saveButtonLabel: {
         color: 'white',
@@ -194,8 +195,10 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
+        flexDirection: 'row',
+        width: '40%',
+        justifyContent: 'space-between'
     },
     cancelButtonLabel: {
         fontSize: 16

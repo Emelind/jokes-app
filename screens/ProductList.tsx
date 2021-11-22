@@ -12,7 +12,6 @@ import { ProductContext } from "../src/contexts/ProductContext";
 import { translate } from "../src/translation/translation";
 import { tokens } from "../src/translation/appStructure";
 
-
 const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">> = (props) => {
 
     const context = useContext(ProductContext);
@@ -49,6 +48,12 @@ const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">>
                 ListHeaderComponent={headerComponent}
             />
             <FAB
+                style={styles.fabSmile}
+                small
+                icon="emoticon-happy"
+                onPress={() => { props.navigation.navigate("RandomJoke") }}
+            />
+            <FAB
                 style={styles.fab}
                 small
                 icon="plus"
@@ -72,6 +77,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
         margin: 16,
         right: 0,
+        bottom: 0,
+    },
+    fabSmile: {
+        position: 'absolute',
+        backgroundColor: 'green',
+        margin: 16,
+        right: 50,
         bottom: 0,
     },
     emptyLabel: {

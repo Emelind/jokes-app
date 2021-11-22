@@ -56,7 +56,6 @@ export const MainNavigator = () => {
 						<Stack.Screen name="EditProduct" component={EditProduct} options={{title: editProductTitle}}/>
 						<Stack.Screen name="NewProduct" component={NewProduct} options={{title: newProductTitle}} />
 						<Stack.Screen name="RandomJoke" component={RandomJoke} options={{title: randomJokeTitle}}/>
-
 						
 						<Stack.Screen name="JokeFactory" component={JokeFactory} />
 						<Stack.Screen name="MyJokes" component={MyJokes} />

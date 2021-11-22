@@ -140,10 +140,14 @@ const EditProduct: React.FC<NativeStackScreenProps<StackScreens, "EditProduct">>
                     <Text style={styles.cancelButtonLabel}>{translate(tokens.screens.editProduct.CancelButtontext)}</Text>
                     <Foundation name="prohibited" size={24} color="black" />
                 </Pressable>
-
-                <Button title="Remove product" onPress={() => { removeProduct() }} />
             </View>
 
+            <Pressable
+                style={styles.removeButton}
+                onPress={() => { removeProduct() }}
+            >
+                <Text style={styles.cancelButtonLabel}>{translate(tokens.screens.editProduct.RemoveProductText)}</Text>
+            </Pressable>
         </View>
     )
 }
@@ -169,33 +173,35 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         marginHorizontal: 40,
-        marginTop: 20,
+        marginVertical: 20,
         paddingStart: 10,
         paddingVertical: 15,
     },
     buttonContainer: {
         width: '80%',
-        marginHorizontal: 40
+        marginHorizontal: 40,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     saveButton: {
         backgroundColor: 'green',
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
         justifyContent: 'space-between',
-        alignItems: 'stretch'
+        flexDirection: 'row',
+        width: '40%'
     },
     saveButtonDisabled: {
         backgroundColor: 'lightgray',
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
         justifyContent: 'space-between',
-        alignItems: 'stretch'
+        flexDirection: 'row',
+        width: '40%'
     },
     saveButtonLabel: {
         color: 'white',
@@ -205,8 +211,10 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 15,
-        paddingStart: 10,
-        paddingVertical: 10,
+        padding: 10,
+        flexDirection: 'row',
+        width: '40%',
+        justifyContent: 'space-between'
     },
     cancelButtonLabel: {
         fontSize: 16
@@ -217,6 +225,18 @@ const styles = StyleSheet.create({
     },
     errorMessageLabel: {
         color: 'red'
+    },
+    removeButton: {
+        backgroundColor: 'red',
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 15,
+        padding: 10,
+        flexDirection: 'row',
+        width: '40%',
+        alignSelf: 'center',
+        textAlign: 'center',
+        marginTop: 40
     }
 })
 
