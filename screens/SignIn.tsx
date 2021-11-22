@@ -26,9 +26,8 @@ const SignIn: React.FC<NativeStackScreenProps<StackScreens, "SignIn">> = (props)
     const showPasswordText = translate(tokens.screens.signIn.ShowPassword)
 
     useEffect(() => {
-        setDisabled(email.length === 0 || password.length === 0);
-    }, [email, password]);
-
+        setDisabled(email.length === 0 || password.length < 6);
+    }, [email, password]); 
 
     return (
         <View style={styles.container}>
@@ -48,7 +47,6 @@ const SignIn: React.FC<NativeStackScreenProps<StackScreens, "SignIn">> = (props)
                         onChangeText={(text) => setPassword(text)}
                         style={styles.input}
                         secureTextEntry={hidePassword}
-                        
                     />
                 </View>
 

@@ -1,11 +1,10 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackScreens } from '../helpers/types';
-import { View, Text, StyleSheet, FlatList, Pressable, Button } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import * as React from 'react';
 import { getAuth } from "firebase/auth";
 import { useEffect } from "react";
-import { doc, Firestore, getFirestore, onSnapshot } from "firebase/firestore";
-import { useState } from "react";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { FAB } from 'react-native-paper';
 import { useContext } from "react";
 import { ProductContext } from "../src/contexts/ProductContext";
@@ -93,7 +92,7 @@ export default ProductList;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItem: 'center',
+        alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white'
     },
@@ -140,8 +139,8 @@ const styles = StyleSheet.create({
     listItemContainer: {
         flexDirection: "row",
         borderWidth: 1,
-        borderColor: "#000",
-        backgroundColor: "#ebf0ee",
+        borderColor: "black",
+        backgroundColor: "lightgray",
         margin: 3,
         padding: 10,
         borderRadius: 5,
