@@ -7,8 +7,6 @@ import { useEffect } from "react";
 import { Picker } from '@react-native-picker/picker';
 import { Feather } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
-import { getAuth } from "firebase/auth";
-import { arrayUnion, doc, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { ProductContext } from "../src/contexts/ProductContext";
 import uuid from 'react-native-uuid';
@@ -81,8 +79,7 @@ const NewProduct: React.FC<NativeStackScreenProps<StackScreens, "NewProduct">> =
                 style={styles.textInput}
                 keyboardType='numeric'
                 onChangeText={(text) => { setProductName(text); }}
-                value={productName}
-
+                value={productName}  
             />
             {!isNameValid && 
                 <View style={styles.errorMessage}>
@@ -134,9 +131,7 @@ const NewProduct: React.FC<NativeStackScreenProps<StackScreens, "NewProduct">> =
         </View>
     )
 }
-
 export default NewProduct;
-
 
 const styles = StyleSheet.create({
     container: {
@@ -211,24 +206,3 @@ const styles = StyleSheet.create({
         color: 'red'
     }
 });
-
-/*
-const saveNewProduct = async () => {
-    const auth = getAuth();
-    if (auth.currentUser) {
-        const db = getFirestore();
-        const reference = doc(db, "users", auth.currentUser.uid);
-        await updateDoc(reference, {
-            products: arrayUnion({
-                productName: productName,
-                productPrice: productPrice,
-                productType: productType
-            })
-        });
-        props.navigation.navigate("ProductList");
-        setProductName("");
-        setProductPrice("");
-    } else {
-        console.log("no user");
-    }
-}*/

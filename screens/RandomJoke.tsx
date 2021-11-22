@@ -40,14 +40,6 @@ const RandomJoke: React.FC<NativeStackScreenProps<StackScreens, "RandomJoke">> =
             <Pressable style={styles.button} onPress={() => {authContext?.logout();}}>
                 <Text style={styles.buttonLabel}>Logout</Text>
             </Pressable>
-
-            {/*<Pressable style={styles.button} onPress={() => { props.navigation.navigate("JokeFactory"); }}>
-                <Text style={styles.buttonLabel}>To the joke factory</Text>
-            </Pressable>
-
-            <Pressable style={styles.button} onPress={() => { props.navigation.navigate("MyJokes"); }}>
-                <Text style={styles.buttonLabel}>To my jokes</Text>
-            </Pressable>*/}
         </View>
     );
 }
@@ -78,12 +70,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginHorizontal: 40,
         marginBottom: 20,
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'green',
         alignItems: 'center'
     },
     buttonLabel: {
         padding: 5,
-        fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 16,
+        color: 'white'
     }
 })

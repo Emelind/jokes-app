@@ -241,18 +241,3 @@ const styles = StyleSheet.create({
         marginTop: 40
     }
 })
-
-/*
-    const saveProduct = async () => {
-        const auth = getAuth();
-        if (auth.currentUser) {
-
-            console.log("fix function")
-            setProductName("");
-            setProductPrice("");
-
-        } else {
-            console.log("no user");
-        }
-    }
-*/

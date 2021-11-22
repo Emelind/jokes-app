@@ -19,7 +19,6 @@ const firebaseConfig = {
   measurementId: "G-LBRSV6YHJ1"
 };
 
-// Initialize Firebase
 let app: FirebaseApp;
 
 export const initFirebase = (callback: (_: boolean) => void) => {
@@ -27,9 +26,9 @@ export const initFirebase = (callback: (_: boolean) => void) => {
   const auth = getAuth();
   auth.onAuthStateChanged((state) => {
     if (state) {
-      callback(true); //current user signed in
+      callback(true);
     } else {
-      callback(false); //current user NOT signed in
+      callback(false);
     }
   });
 };
@@ -51,17 +50,10 @@ export const fbRegister = async (
   if (auth.currentUser) {
     const db = getFirestore();
     const reference = doc(db, "users", auth.currentUser.uid)
-    await setDoc(reference, { "jokes": [] }, { merge: true })
+    await setDoc(reference, { "products": [] }, { merge: true })
 } else {
     console.log("no user")
 }
-
-  /*const newUser: User = {
-    ...createUserResponse.user,
-    displayName: firstName + " " + lastName,
-  };
-  newUser.email;
-  await updateCurrentUser(auth, newUser);*/
   return createUserResponse;
 };
 

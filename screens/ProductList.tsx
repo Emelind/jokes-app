@@ -17,6 +17,21 @@ const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">>
 
     const context = useContext(ProductContext);
 
+    useEffect(() => {
+		const auth = getAuth();
+		if(auth.currentUser) {
+			const db = getFirestore();
+			const unsub = onSnapshot(doc(db, "users", auth.currentUser.uid), (doc) => {
+				const data = doc.data()
+				if(data) {
+                    context.setProducts(data.products)
+				}
+			})
+		} else {
+			console.log("no user")
+		}
+	}, [])
+
     const headerComponent = () => (
         <View style={styles.listHeaderContainer}>
             <Text style={styles.leftHeaderItem}>{translate(tokens.screens.productList.HeaderName)}</Text>
@@ -52,7 +67,7 @@ const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">>
                         </Pressable>
                     </View>
                 )}
-                keyExtractor={item => item.productId}
+                keyExtractor={(item) => item.productId}
                 ListEmptyComponent={emptyComponent}
                 ListHeaderComponent={headerComponent}
                 maxSwipeDistance={240}
@@ -155,22 +170,3 @@ const styles = StyleSheet.create({
         padding: 10
     }
 })
-
-
-    //const auth = getAuth();
-    // const [products, setProducts] = useState([]);
-/*useEffect(() => {
-    if (auth.currentUser) {
-        const db = getFirestore();
-        const unsub = onSnapshot(doc(db, "users", auth.currentUser.uid), (doc) => {
-            const data = doc.data()
-            console.log("data", data)
-            if (data) {
-                const prod = data.products
-                console.log("prod: ", prod)
-            }
-        });
-    } else {
-        console.log("no user");
-    }
-}, [])*/

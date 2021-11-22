@@ -15,6 +15,11 @@ import EditProduct from './screens/EditProduct';
 import { ProductContextProvider } from './src/contexts/ProductContext';
 import { tokens } from "./src/translation/appStructure";
 import { setI18nConfig, translate } from "./src/translation/translation";
+import { initializeApp } from 'firebase/app';
+import { initFirebase } from './firebase';
+import { getAuth } from 'firebase/auth';
+import { arrayUnion, doc, getFirestore, onSnapshot, updateDoc } from "firebase/firestore";
+import { useEffect } from 'react';
 
 export default function App() {
 
