@@ -1,8 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { useContext } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, SafeAreaView, StyleSheet } from 'react-native';
 import { View, Text, TextInput } from "react-native";
 import { StackScreens } from '../helpers/types';
