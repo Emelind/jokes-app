@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { StackScreens } from '../helpers/types';
 import { AuthContext } from '../src/contexts/AuthContext';
 import { tokens } from '../src/translation/appStructure';
@@ -43,6 +43,11 @@ const RandomJoke: React.FC<NativeStackScreenProps<StackScreens, "RandomJoke">> =
             <Pressable style={styles.button} onPress={() => {props.navigation.navigate("ProductList")}}>
                 <Text style={styles.buttonLabel}>To the product list</Text>
             </Pressable>
+
+            <Image 
+                source={{uri: 'https://media.idownloadblog.com/wp-content/uploads/2016/02/Twitter-GIF.gif'}}  
+                style={{width: 100, height: 100 }} 
+            />
         </View>
     );
 }

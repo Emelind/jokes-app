@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AuthContext, AuthContextProvider } from '../src/contexts/AuthContext';
+import { AuthContext } from '../src/contexts/AuthContext';
 import * as React from 'react';
 import { useContext } from 'react';
 import RandomJoke from '../screens/RandomJoke';
@@ -10,9 +10,8 @@ import { StackScreens } from '../helpers/types';
 import ProductList from '../screens/ProductList';
 import NewProduct from '../screens/NewProduct';
 import EditProduct from '../screens/EditProduct';
-import { ProductContextProvider } from '../src/contexts/ProductContext';
 import { tokens } from "../src/translation/appStructure";
-import { setI18nConfig, translate } from "../src/translation/translation";
+import { translate } from "../src/translation/translation";
 
 export const MainNavigator = () => {
 
