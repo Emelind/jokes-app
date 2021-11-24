@@ -1,17 +1,17 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AuthContext } from '../src/contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 import * as React from 'react';
 import { useContext } from 'react';
 import RandomJoke from '../screens/RandomJoke';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
-import { StackScreens } from '../helpers/types';
+import { StackScreens } from '../../helpers/types';
 import ProductList from '../screens/ProductList';
 import NewProduct from '../screens/NewProduct';
 import EditProduct from '../screens/EditProduct';
-import { tokens } from "../src/translation/appStructure";
-import { translate } from "../src/translation/translation";
+import { tokens } from "../translation/appStructure";
+import { translate } from "../translation/translation";
 
 export const MainNavigator = () => {
 

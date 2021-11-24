@@ -4,7 +4,7 @@ import {
 	fbLogout,
 	fbRegister,
 	initFirebase,
-} from "../../firebase";
+} from "../services/firebase";
 
 interface IAuthContext {
 	isUserSignedIn: boolean;

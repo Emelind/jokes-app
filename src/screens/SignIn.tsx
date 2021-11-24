@@ -3,10 +3,10 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView, Pressable, StyleSheet, Platform } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StackScreens } from '../helpers/types';
-import { AuthContext } from '../src/contexts/AuthContext';
-import { tokens } from '../src/translation/appStructure';
-import { translate } from '../src/translation/translation';
+import { StackScreens } from '../../helpers/types';
+import { AuthContext } from '../contexts/AuthContext';
+import { tokens } from '../translation/appStructure';
+import { translate } from '../translation/translation';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 

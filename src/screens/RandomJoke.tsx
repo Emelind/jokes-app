@@ -3,10 +3,10 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import { StackScreens } from '../helpers/types';
-import { AuthContext } from '../src/contexts/AuthContext';
-import { tokens } from '../src/translation/appStructure';
-import { translate } from '../src/translation/translation';
+import { StackScreens } from '../../helpers/types';
+import { AuthContext } from '../contexts/AuthContext';
+import { tokens } from '../translation/appStructure';
+import { translate } from '../translation/translation';
 
 const RandomJoke: React.FC<NativeStackScreenProps<StackScreens, "RandomJoke">> = (props) => {
 

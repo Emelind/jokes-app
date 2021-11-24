@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StackScreens } from '../helpers/types';
+import { StackScreens } from '../../helpers/types';
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import * as React from 'react';
 import { getAuth } from "firebase/auth";
@@ -7,9 +7,9 @@ import { useEffect } from "react";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { FAB } from 'react-native-paper';
 import { useContext } from "react";
-import { ProductContext } from "../src/contexts/ProductContext";
-import { translate } from "../src/translation/translation";
-import { tokens } from "../src/translation/appStructure";
+import { ProductContext } from "../contexts/ProductContext";
+import { translate } from "../translation/translation";
+import { tokens } from "../translation/appStructure";
 import SwipeableFlatList from "react-native-swipeable-list";
 
 const ProductList: React.FC<NativeStackScreenProps<StackScreens, "ProductList">> = (props) => {

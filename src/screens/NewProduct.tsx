@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StackScreens } from '../helpers/types';
+import { StackScreens } from '../../helpers/types';
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import * as React from 'react';
 import { useState } from "react";
@@ -8,10 +8,10 @@ import { Picker } from '@react-native-picker/picker';
 import { Feather } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import { useContext } from "react";
-import { ProductContext } from "../src/contexts/ProductContext";
+import { ProductContext } from "../contexts/ProductContext";
 import uuid from 'react-native-uuid';
-import { tokens } from "../src/translation/appStructure";
-import { translate } from "../src/translation//translation";
+import { tokens } from "../translation/appStructure";
+import { translate } from "../translation/translation";
 
 const NewProduct: React.FC<NativeStackScreenProps<StackScreens, "NewProduct">> = (props) => {
 
